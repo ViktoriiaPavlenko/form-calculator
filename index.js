@@ -19,16 +19,20 @@ function getResultValue(e) {
       result = num1 * num2;
       break;
     case '/':
-      result = num1 / num2;
+      if (num2 === 0 || num1 === 0) {
+        return alert('Ooops... I can not divide by zero');
+      } else {
+        result = num1 / num2;
+      }
       break;
     default:
-      result = 'Please, enter the numbers and select operator';
+      alert('Please, enter the numbers and select operator');
   }
   document.getElementById('result').innerHTML = Math.round(result);
   clearInput();
 }
 
 function clearInput() {
-  let num1 = (document.getElementById('num1').value = '');
-  let num2 = (document.getElementById('num2').value = '');
+  document.getElementById('num1').value = '';
+  document.getElementById('num2').value = '';
 }
